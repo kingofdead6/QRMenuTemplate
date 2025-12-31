@@ -10,7 +10,7 @@ import {
   Linkedin,
 } from "lucide-react";
 import { API_BASE_URL } from '../../../api';
-import logo from '../../assets/logo.jpg';
+import logo from '../../assets/Logo.jpg';
 const platformIcons = {
   instagram: Instagram,
   facebook: Facebook,
