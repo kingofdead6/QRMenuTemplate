@@ -173,36 +173,49 @@ const MenuPage = () => {
           displayCategories.map((category) => (
             <section key={category} className="mb-16">
               {selectedCategory !== 'All' || displayCategories.length > 1 ? (
-                <h2 className="text-4xl font-bold text-gray-800 mb-10 text-left  bg-clip-text ">
-                  {category}
-                </h2>
+                <div className="flex items-center justify-start mb-6">
+                  <h2 className="text-4xl font-bold text-gray-800 bg-clip-text mr-4">
+                    {category}
+                  </h2>
+                  <span className=" border-1 w-full border-gray-200 mt-3" />
+                </div>
               ) : null}
 
               <div className="space-y-10">
                 {menuItems[category]?.map((item) => (
                   <div
-                    key={item._id}
-                    className="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col sm:flex-row gap-6 hover:shadow-2xl transition-all duration-300"
-                  >
-                    <div className="sm:w-48 sm:h-48 w-full h-64 flex-shrink-0">
-                      <img
-                        src={item.image || '/placeholder-food.jpg'}
-                        alt={item.name}
-                        className="w-full h-full object-cover rounded-t-3xl sm:rounded-l-3xl sm:rounded-tr-none"
-                        onError={(e) => (e.target.src = '/placeholder-food.jpg')}
-                      />
-                    </div>
+  key={item._id}
+  className="bg-white rounded-2xl shadow-md p-4 flex items-center justify-between gap-4 hover:shadow-lg transition-shadow duration-300"
+>
+  {/* Left Side: Text */}
+  <div className="flex-1">
+    <h3 className="text-lg font-semibold text-gray-900">{item.name}</h3>
+    {item.description && (
+      <p className="text-gray-500 text-sm mt-1">{item.description}</p>
+    )}
+    <span className="text-blue-500 font-bold text-lg mt-2 block">
+      ${Number(item.price).toFixed(2)}
+    </span>
+  </div>
 
-                    <div className="flex-1 p-8 flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-3xl font-bold text-gray-900 mb-3">{item.name}</h3>
-                        <span className="text-4xl font-extrabold text-gray-900">
-                          {Number(item.price).toFixed(2)} DZD
-                        </span>
-                        
-                      </div>
-                    </div>
-                  </div>
+  {/* Right Side: Image */}
+  <div className="w-24 h-24 flex-shrink-0">
+    <img
+      src={item.image || "/placeholder-food.jpg"}
+      alt={item.name}
+      className="w-full h-full object-cover rounded-lg"
+      onError={(e) => (e.target.src = "/placeholder-food.jpg")}
+    />
+  </div>
+
+  {/* Optional: Small + button */}
+  <button className="ml-2 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+    </svg>
+  </button>
+</div>
+
                 ))}
               </div>
             </section>
