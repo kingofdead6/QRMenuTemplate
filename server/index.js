@@ -7,7 +7,7 @@ import cors from "cors";
 import authRoutes from "./routes/auth.js";
 import menuRoutes from "./routes/menu.js";           
 import userRoutes from "./routes/users.js";
-import workingTimesRoutes from "./routes/workingTimes.js"; 
+import workingTimesRoutes from "./routes/workingtimes.js"; 
 import socialMediaRoutes from "./routes/socialMediaRoutes.js";   
 import categoryRoutes from "./routes/categoriesRoutes.js"; 
 
