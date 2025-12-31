@@ -1,4 +1,3 @@
-// src/pages/MenuPage.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
@@ -10,9 +9,8 @@ import {
   Music,
   Linkedin,
 } from "lucide-react";
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
-
+import { API_BASE_URL } from '../../../api';
+import logo from '../../assets/logo.jpg';
 const platformIcons = {
   instagram: Instagram,
   facebook: Facebook,
@@ -107,7 +105,7 @@ const MenuPage = () => {
           <p className="text-lg text-gray-700">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
+            className="cursor-pointer mt-6 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
           >
             Try Again
           </button>
@@ -122,12 +120,13 @@ const MenuPage = () => {
       <header className="bg-white shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-8 text-center">
           <div className="flex justify-center mb-6">
-            <div className="w-28 h-28 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full shadow-2xl flex items-center justify-center text-white text-4xl font-bold">
-              AB
-            </div>
+            <img
+              src={logo}
+              alt="The Azure Bistro Logo"
+              className="w-24 h-24 object-cover rounded-full border-4 border-blue-600"
+            />
           </div>
           <h1 className="text-4xl font-bold text-gray-900">The Azure Bistro</h1>
-          <p className="text-xl text-gray-600 mt-2">Fresh flavors by the coast</p>
 
           <div className="flex items-center justify-center gap-6 mt-6 text-gray-600">
             <span className="flex items-center gap-2 text-lg">
@@ -136,12 +135,7 @@ const MenuPage = () => {
               </svg>
               Open {workingHours.open} - {workingHours.close}
             </span>
-            <span className="flex items-center gap-2 text-lg">
-              <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              4.8 <span className="text-gray-500">(1.2k reviews)</span>
-            </span>
+            
           </div>
         </div>
       </header>
@@ -155,7 +149,7 @@ const MenuPage = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-8 py-3 rounded-full whitespace-nowrap font-semibold text-lg transition-all duration-300 ${
+                  className={`cursor-pointer px-8 py-3 rounded-full whitespace-nowrap font-semibold text-lg transition-all duration-300 ${
                     selectedCategory === category
                       ? 'bg-blue-600 text-white shadow-lg'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -179,7 +173,7 @@ const MenuPage = () => {
           displayCategories.map((category) => (
             <section key={category} className="mb-16">
               {selectedCategory !== 'All' || displayCategories.length > 1 ? (
-                <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                <h2 className="text-4xl font-bold text-gray-800 mb-10 text-left  bg-clip-text ">
                   {category}
                 </h2>
               ) : null}
@@ -202,27 +196,10 @@ const MenuPage = () => {
                     <div className="flex-1 p-8 flex flex-col justify-between">
                       <div>
                         <h3 className="text-3xl font-bold text-gray-900 mb-3">{item.name}</h3>
-                        {item.description && (
-                          <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                            {item.description}
-                          </p>
-                        )}
-                        {item.isGlutenFree && (
-                          <span className="inline-block px-5 py-2 text-sm font-bold bg-green-100 text-green-800 rounded-full">
-                            Gluten Free
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="flex items-center justify-between mt-8">
                         <span className="text-4xl font-extrabold text-gray-900">
                           {Number(item.price).toFixed(2)} DZD
                         </span>
-                        <button className="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition shadow-xl">
-                          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M12 4v16m8-8H4" />
-                          </svg>
-                        </button>
+                        
                       </div>
                     </div>
                   </div>
