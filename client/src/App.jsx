@@ -8,6 +8,7 @@ import AdminUsers from "./Components/Admin/AdminUsers";
 import AdminWorkingHours from "./components/Admin/AdminWorkingHours";
 import AdminMenu from "./components/Admin/AdminMenu";
 import AdminSocialMedia from "./components/Admin/AdminSocialMedia";
+import NotFound from "./components/Shared/NotFound";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="/admin/categories" element={<AdminCategories />} />
             </Route>
 
+            <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
