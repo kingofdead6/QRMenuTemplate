@@ -2,7 +2,7 @@ import express from 'express';
 import {
   getWorkingTimes,
   updateWorkingTimes,
-} from '../Controllers/workingTimes.js';
+} from '../Controllers/workingtimes.js';
 import { protect, admin } from '../Middleware/auth.js';
 
 const router = express.Router();
