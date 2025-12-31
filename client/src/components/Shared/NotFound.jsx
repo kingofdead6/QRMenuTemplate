@@ -44,13 +44,7 @@ export default function NotFound() {
           transition={{ delay: 0.6 }}
           className="my-12"
         >
-          <div className="w-40 h-40 mx-auto rounded-full shadow-2xl overflow-hidden border-8 border-white bg-white">
-            <img
-              src="https://res.cloudinary.com/dtwa3lxdk/image/upload/v1756897359/465660711_1763361547537323_2674934284076407223_n_prlt48.jpg"
-              alt="The Azure Bistro"
-              className="w-full h-full object-cover"
-            />
-          </div>
+         
         </motion.div>
 
         {/* Back to Home Button */}
@@ -67,15 +61,7 @@ export default function NotFound() {
           </Link>
         </motion.div>
 
-        {/* Subtle footer note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="mt-16 text-gray-500 text-sm"
-        >
-          The Azure Bistro © 2025
-        </motion.p>
+     
       </motion.div>
     </div>
   );
