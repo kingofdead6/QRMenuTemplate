@@ -39,7 +39,7 @@ const MenuPage = () => {
         const [menuRes, hoursRes, socialRes] = await Promise.all([
           axios.get(`${API_BASE_URL}/menu`),
           axios.get(`${API_BASE_URL}/working-times`),
-          axios.get(`${API_BASE_URL}/social-media`), // Fetch active social links
+          axios.get(`${API_BASE_URL}/social-media`), 
         ]);
 
         // Format time to 12-hour (e.g., 9:30pm)
