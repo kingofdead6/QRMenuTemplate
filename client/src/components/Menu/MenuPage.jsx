@@ -151,7 +151,7 @@ const MenuPage = () => {
                   onClick={() => setSelectedCategory(category)}
                   className={`cursor-pointer px-8 py-3 rounded-full whitespace-nowrap font-semibold text-lg transition-all duration-300 ${
                     selectedCategory === category
-                      ? 'bg-blue-600 text-white shadow-lg'
+                      ? 'bg-cyan-400 text-white shadow-lg'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -189,17 +189,14 @@ const MenuPage = () => {
 >
   {/* Left Side: Text */}
   <div className="flex-1">
-    <h3 className="text-lg font-semibold text-gray-900">{item.name}</h3>
-    {item.description && (
-      <p className="text-gray-500 text-sm mt-1">{item.description}</p>
-    )}
-    <span className="text-blue-500 font-bold text-lg mt-2 block">
-      ${Number(item.price).toFixed(2)}
+    <h3 className="text-3xl font-bold text-gray-900">{item.name}</h3>
+    <span className="text-cyan-400 font-bold text-2xl mt-2 block">
+      {Number(item.price)} DZD
     </span>
   </div>
 
   {/* Right Side: Image */}
-  <div className="w-24 h-24 flex-shrink-0">
+  <div className="w-32 h-32 flex shrink-0">
     <img
       src={item.image || "/placeholder-food.jpg"}
       alt={item.name}
@@ -208,12 +205,6 @@ const MenuPage = () => {
     />
   </div>
 
-  {/* Optional: Small + button */}
-  <button className="ml-2 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center hover:bg-blue-600 transition">
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-    </svg>
-  </button>
 </div>
 
                 ))}
@@ -224,18 +215,8 @@ const MenuPage = () => {
       </main>
 
       {/* Footer with Social Media */}
-      <footer className="bg-gray-900 text-white py-12 mt-auto">
+      <footer className="bg-gray-800 text-white py-12 mt-auto">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-2">The Azure Bistro</h2>
-          <p className="text-gray-400 mb-8">Fresh flavors by the coast</p>
-
-          <div className="flex items-center justify-center gap-3 text-gray-400 mb-8">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>Open {workingHours.open} - {workingHours.close}</span>
-          </div>
-
           {/* Social Media Icons */}
           {socialLinks.length > 0 && (
             <div className="flex justify-center gap-8 mb-10">
@@ -258,10 +239,6 @@ const MenuPage = () => {
               })}
             </div>
           )}
-
-          <p className="text-gray-500 text-sm">
-            © 2025 The Azure Bistro. All rights reserved.
-          </p>
         </div>
       </footer>
 
